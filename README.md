@@ -1,3 +1,6 @@
+ERD PEMBELIAN TIKET BIOSKOP ONLINE
+![ERD-AKHIR](https://github.com/intchl/Projek-Akhir/assets/126045100/a393eadf-f3db-4f37-bf34-f2b0449e9217)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
