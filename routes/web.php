@@ -17,10 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/master', function () {
+    return view('layout.master');
 });
 
-Route::get('/beranda', function () {
-    return view('beranda');
+Route::get('/contoh', function () {
+    return view('contoh.index');
+});
+
+Route::get('/add', function () {
+    return view('contoh.add');
+});
+
+Route::get('/info', function () {
+    return view('contoh.info');
+});
+
+Route::get('/edit', function () {
+    return view('contoh.edit');
 });
