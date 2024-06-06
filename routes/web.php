@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/info', function () {
 Route::get('/edit', function () {
     return view('contoh.edit');
 });
+
+Route::resource('film', FilmController::class);

@@ -40,7 +40,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../index.html">
+        <a class="nav-link" href="/film">
           <i class=" typcn typcn-image-outline menu-icon"></i>
           <span class="menu-title">Film </span>
         </a>
