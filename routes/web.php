@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/info', function () {
 Route::get('/edit', function () {
     return view('contoh.edit');
 });
+
+Route::resource('buyer', BuyerController::class);

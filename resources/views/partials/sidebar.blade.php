@@ -52,7 +52,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../index.html">
+        <a class="nav-link" href="/buyer">
           <i class="typcn typcn-group-outline menu-icon"></i>
           <span class="menu-title">Buyer </span>
         </a>
