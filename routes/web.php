@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\BuyerController;
 
@@ -41,3 +42,5 @@ Route::get('/edit', function () {
 
 Route::resource('film', FilmController::class);
 Route::resource('buyer', BuyerController::class);
+
+Auth::routes();
