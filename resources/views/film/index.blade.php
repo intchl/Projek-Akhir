@@ -2,38 +2,46 @@
 
 @section('title')
     Film
+    <a href="/film/create" class="float-right"><button type="button" class="btn btn-primary btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
+@endsection
+@section('subtitle')
+    Best Seller Film
 @endsection
 
 @section('content')
-<a href="/film/create" class="btn btn-sm btn-primary">Add Film</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @forelse ($film as $key=>$item)
-        <tr>
-            <th scope="row">{{$key + 1}}</th>
-            <td>{{$item->title}}</td>
-            <td>
-                <form action="/film/{{$item->id}}" method="post">
-                    @csrf
-                    @method('delete')
-                    <a href="/film/{{$item->id}}"><button type="button" class="btn btn-info btn-rounded btn-icon" ><i class=" typcn typcn-info-large-outline menu-icon"></i></button></a>
-                    <a href="/film/{{$item->id}}/edit"><button type="button"class="btn btn-warning btn-rounded btn-icon" ><i class=" typcn typcn-edit menu-icon"></i></button></a>
-                    <button type="submit" class="btn btn-danger btn-rounded btn-icon"><i class="typcn typcn-trash menu-icon"></i></button></a>
-                </form>
-            </td>
-        </tr>
-        @empty
-        <tr>
-            <th>Tidak ada film</th>
-        </tr>
-        @endforelse
-    </tbody>
-</table>
+<div class="row mt-3">
+    @forelse ($film as $key => $item)
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            <img src="{{ asset('images/' . $item->poster) }}" class="card-img-top poster" alt="{{ $item->title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ $item->title }}</h5>
+                <p class="card-text">Schedule Time {{ $item->schedule}}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="/film/{{ $item->id }}" class="btn btn-info btn-sm ">
+                        <i class="typcn typcn-info-large-outline menu-icon"></i>
+                    </a>
+                    <a href="/film/{{ $item->id }}/edit" class="btn btn-warning btn-sm">
+                        <i class="typcn typcn-edit menu-icon"></i>
+                    </a>
+                    <form action="/film/{{ $item->id }}" method="post" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="typcn typcn-trash menu-icon"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @empty
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            Tidak ada film
+        </div>
+    </div>
+    @endforelse
+</div>
+
 @endsection

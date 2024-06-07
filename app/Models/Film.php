@@ -9,5 +9,5 @@ class Film extends Model
 {
     use HasFactory;
     protected $table = "film";
-    protected $fillable = ["title", "synopsis", "schedule"];
+    protected $fillable = ["title", "synopsis", "schedule", 'poster'];
 }
