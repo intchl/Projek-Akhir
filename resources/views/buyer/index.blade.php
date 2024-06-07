@@ -2,11 +2,11 @@
 
 @section('title')
     Buyer
+    <a href="/buyer/create" class="float-right"><button type="button" class="btn btn-primary btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
 @endsection
 
 @section('content')
-<a href="/buyer/create" class="float-right"><button type="button" class="btn btn-success btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
-<table class="table">
+<table class="table mt-3">
     <thead>
       <tr>
         <th scope="col">#</th>
