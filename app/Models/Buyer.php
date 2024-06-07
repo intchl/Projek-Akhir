@@ -9,5 +9,5 @@ class Buyer extends Model
 {
     use HasFactory;
     protected $table = "buyer";
-    protected $fillable = ["name", "email"];
+    protected $fillable = ["age", "bio", "users_id"];
 }

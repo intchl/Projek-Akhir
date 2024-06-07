@@ -30,13 +30,15 @@ class BuyerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:2',
-            'email' => 'required',
+            'age' => 'required',
+            'bio' => 'required|min:4',
+            'users_id' => 'required',
         ]);
         $buyer = new Buyer;
 
-        $buyer->name = $request->name;
-        $buyer->email = $request->email;
+        $buyer->age = $request->age;
+        $buyer->bio = $request->bio;
+        $buyer->users_id = $request->users_id;
 
         $buyer->save();
 
@@ -67,13 +69,15 @@ class BuyerController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|min:2',
-            'email' => 'required',
+            'age' => 'required',
+            'bio' => 'required|min:4',
+            'users_id' => 'required',
         ]);
         $buyer = Buyer::find($id);
 
-        $buyer->name = request('name');
-        $buyer->email = request('email');
+        $buyer->age = request('age');
+        $buyer->bio = request('bio');
+        $buyer->users_id = request('users_id');
 
         $buyer->save();
         return redirect('/buyer');

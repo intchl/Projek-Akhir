@@ -6,15 +6,22 @@
             <img src="{{asset('admin/template/images/faces/face29.png')}}" alt="image">
             <span class="sidebar-status-indicator"></span>
           </div>
+          @auth
           <div class="sidebar-profile-name">
-            <p class="sidebar-name">
-              Kenneth Osborne
-            </p>
+            <p class="sidebar-name">{{ Auth::user()->name }}</p>
             <p class="sidebar-designation">
               Welcome
             </p>
           </div>
         </div>
+          @endauth
+          @guest
+          <div class="sidebar-profile-name">
+            <p class="sidebar-name">Belum login</p>
+          </div>
+        </div>
+          @endguest
+          
         <div class="nav-search">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
@@ -34,17 +41,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/studio">
-          <i class="typcn typcn-briefcase menu-icon"></i>
-          <span class="menu-title">Studio </span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="/film">
           <i class=" typcn typcn-image-outline menu-icon"></i>
           <span class="menu-title">Film </span>
         </a>
       </li>
+      @auth
       <li class="nav-item">
         <a class="nav-link" href="../../index.html">
           <i class="typcn typcn-film  menu-icon"></i>
@@ -63,5 +65,27 @@
           <span class="menu-title">Transaction </span>
         </a>
       </li>
+      @endauth
+      @auth
+      <li class="nav-item bg-danger">
+        <a class="nav-link" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+      </li>
+      @endauth
+      @guest
+      <li class="nav-item bg-primary">
+        <a class="nav-link" href="/login">
+          <span class="menu-title">Login</span>
+        </a>
+      </li>
+      @endguest
+      
     </ul>
   </nav>

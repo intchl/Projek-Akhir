@@ -21,6 +21,7 @@
                     <a href="/film/{{ $item->id }}" class="btn btn-info btn-sm ">
                         <i class="typcn typcn-info-large-outline menu-icon"></i>
                     </a>
+                    @auth
                     <a href="/film/{{ $item->id }}/edit" class="btn btn-warning btn-sm">
                         <i class="typcn typcn-edit menu-icon"></i>
                     </a>
@@ -30,7 +31,8 @@
                         <button type="submit" class="btn btn-danger btn-sm">
                             <i class="typcn typcn-trash menu-icon"></i>
                         </button>
-                    </form>
+                    </form> 
+                    @endauth  
                 </div>
             </div>
         </div>
