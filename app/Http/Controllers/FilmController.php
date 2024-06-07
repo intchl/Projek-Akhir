@@ -43,13 +43,17 @@ class FilmController extends Controller
 
         $film = Film::create($request->all());
         if ($request->hasFile('poster')) {
-            $request->file('poster')->move('images/', $request->file('poster')->getClientOriginalName());
-            $film->poster = $request->file('poster')->getClientOriginalName();
-            $film->save();
+            if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
+                unlink(public_path('images/' . $film->poster));
+            }
+
+            $poster = $request->file('poster');
+            $newPosterName = time() . '.' . $poster->getClientOriginalExtension();
+            $poster->move(public_path('images'), $newPosterName);
+            $film->poster = $newPosterName;
         }
 
-
-
+        $film->save();
         return redirect('/film');
     }
 
