@@ -79,13 +79,13 @@ class TicketController extends Controller
             'film_id' => 'required',
         ]);
 
-        $$ticket = Ticket::find($id);
+        $ticket = Ticket::find($id);
         
-        $$ticket->price = $request ['price'];
-        $$ticket->seat_number = $requests ['seat_number'];
-        $ticket->fim_id = $request ['film_id'];
+        $ticket->price = $request ['price'];
+        $ticket->seat_number = $request ['seat_number'];
+        $ticket->fiLm_id = $request ['film_id'];
 
-        $$ticket->save();
+        $ticket->save();
 
         return redirect('/ticket');
     }

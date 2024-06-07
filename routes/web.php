@@ -47,3 +47,7 @@ Route::resource('buyer', BuyerController::class);
 Route::resource('ticket', TicketController::class);
 
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -2,10 +2,11 @@
 
 @section('title')
     Ticket
+    <a href="/ticket/create" class="float-right"><button type="button" class="btn btn-success btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
 @endsection
 
 @section('content')
-<a href="/ticket/create" class="float-right"><button type="button" class="btn btn-success btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
+
 <table class="table">
     <thead>
       <tr>

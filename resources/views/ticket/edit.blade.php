@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label>Seat Number</label>
-        <input type="string" class="form-control" name="seat-number" value="{{$ticket->seat_number}}">
+        <input type="text" class="form-control" name="seat_number" value="{{$ticket->seat_number}}">
     </div>
     <div class="form-group">
         <label>Film</label>
