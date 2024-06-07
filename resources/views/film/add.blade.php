@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form action="/film" method="post">
+<form action="/film" method="post" enctype="multipart/form-data">
     {{-- validation --}}
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -30,6 +30,10 @@
       <div class="form-group">
         <label>Schedule</label>
         <input type="string" class="form-control" name="schedule">
+      </div>
+      <div class="form-group">
+        <label>Poster</label>
+        <input type="file" class="form-control" name="poster" id="inputGroupFile">
       </div>
       <button type="submit" class="btn btn-primary mr-2">Submit</button>
       <a href="/film"><button type="button" class="btn btn-light" >Cancel</button></a>

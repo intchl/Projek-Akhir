@@ -21,7 +21,7 @@ class FilmController extends Controller
      */
     public function create()
     {
-        return view ('film.add');
+        return view('film.add');
     }
 
     /**
@@ -41,8 +41,19 @@ class FilmController extends Controller
         $film->synopsis = $request->synopsis;
         $film->schedule = $request->schedule;
 
-        $film->save();
+        $film = Film::create($request->all());
+        if ($request->hasFile('poster')) {
+            if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
+                unlink(public_path('images/' . $film->poster));
+            }
 
+            $poster = $request->file('poster');
+            $newPosterName = time() . '.' . $poster->getClientOriginalExtension();
+            $poster->move(public_path('images'), $newPosterName);
+            $film->poster = $newPosterName;
+        }
+
+        $film->save();
         return redirect('/film');
     }
 
@@ -73,18 +84,32 @@ class FilmController extends Controller
             'title' => 'required',
             'synopsis' => 'required',
             'schedule' => 'required',
+            'poster' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $film = Film::find($id);
-        
+
         $film->title = $request['title'];
         $film->synopsis = $request['synopsis'];
         $film->schedule = $request['schedule'];
 
+        if ($request->hasFile('poster')) {
+            if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
+                unlink(public_path('images/' . $film->poster));
+            }
+
+            $poster = $request->file('poster');
+            $newPosterName = time() . '.' . $poster->getClientOriginalExtension();
+            $poster->move(public_path('images'), $newPosterName);
+            $film->poster = $newPosterName;
+        }
+
         $film->save();
 
-        return redirect('/film');
+        return redirect('/film')->with('success', 'Film updated successfully!');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

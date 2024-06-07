@@ -10,10 +10,5 @@ class Film extends Model
 {
     use HasFactory;
     protected $table = "film";
-    protected $fillable = ["title", "synopsis", "schedule"];
-
-    public function studio(): HasOne
-    {
-        return $this->hasOne(Studio::class, 'film_id');
-    }
+    protected $fillable = ["title", "synopsis", "schedule", 'poster'];
 }
