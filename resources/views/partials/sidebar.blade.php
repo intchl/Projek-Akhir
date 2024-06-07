@@ -34,7 +34,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../index.html">
+        <a class="nav-link" href="/studio">
           <i class="typcn typcn-briefcase menu-icon"></i>
           <span class="menu-title">Studio </span>
         </a>

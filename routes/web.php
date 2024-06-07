@@ -41,3 +41,7 @@ Route::get('/edit', function () {
 
 Route::resource('film', FilmController::class);
 Route::resource('buyer', BuyerController::class);
+
+
+
+
