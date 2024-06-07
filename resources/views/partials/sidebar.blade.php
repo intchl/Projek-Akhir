@@ -46,7 +46,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../index.html">
+        <a class="nav-link" href="/ticket">
           <i class="typcn typcn-film  menu-icon"></i>
           <span class="menu-title">Ticket </span>
         </a>

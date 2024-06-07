@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<a href="/buyer/create" class="btn btn-sm btn-primary">Add Buyer</a>
+<a href="/buyer/create" class="float-right"><button type="button" class="btn btn-success btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
 <table class="table">
     <thead>
       <tr>
