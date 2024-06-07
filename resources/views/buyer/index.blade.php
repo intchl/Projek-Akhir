@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-
 <table class="table mt-3">
     <thead>
       <tr>
