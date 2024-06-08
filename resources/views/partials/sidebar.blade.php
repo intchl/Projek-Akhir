@@ -46,7 +46,6 @@
           <span class="menu-title">Film </span>
         </a>
       </li>
-      @auth
       <li class="nav-item">
         <a class="nav-link" href="/ticket">
           <i class="typcn typcn-film  menu-icon"></i>
@@ -65,7 +64,6 @@
           <span class="menu-title">Transaction </span>
         </a>
       </li>
-      @endauth
       @auth
       <li class="nav-item bg-danger">
         <a class="nav-link" href="{{ route('logout') }}"

@@ -28,8 +28,10 @@
                     @csrf
                     @method('delete')
                     <a href="/ticket/{{$item->id}}" ><button type="button" class="btn btn-info btn-rounded btn-icon" ><i class=" typcn typcn-info-large-outline menu-icon"></i></button></a>
+                    @auth
                     <a href="/ticket/{{$item->id}}/edit" ><button type="button" class="btn btn-warning btn-rounded btn-icon" ><i class=" typcn typcn-edit menu-icon"></i></button></a>
                     <button type="submit" class="btn btn-danger btn-rounded btn-icon"><i class="typcn typcn-trash menu-icon" ></i></button>
+                    @endauth
                 </form>
             </td>
           </tr>
