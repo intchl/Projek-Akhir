@@ -3,32 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Buyer;
+use App\Models\DataBuyer;
 
 class BuyerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() {
-        $buyers = Buyer::with('user')->get(); // Menggunakan eager loading untuk menghindari masalah N+1
-        return view('buyer.index', compact('buyers'));
+    public function index()
+    {
+        $buyers = Buyer::with('dataBuyer')->get();
+        return view('buyer.index', ['buyers' => $buyers]);
     }
-
-    // public function index()
-    // {
-    //     $buyer = Buyer::all();
-    //     return view('buyer.index', ["buyer"=> $buyer]);
-    // }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        $user = User::get();
-        return view('buyer.add', ['user' => $user]);
+        $dataBuyers = DataBuyer::get();
+        return view('buyer.add', ['dataBuyers' => $dataBuyers]);
     }
 
     /**
@@ -38,18 +33,19 @@ class BuyerController extends Controller
     {
         $request->validate([
             'age' => 'required',
-            'bio' => 'required|min:4',
-            'users_id' => 'required',
+            'bio' => 'required',
+            'data_buyers_id' => 'required',
         ]);
-        $buyer = new Buyer;
 
-        $buyer->age = $request->age;
-        $buyer->bio = $request->bio;
-        $buyer->users_id = $request->users_id;
+        $buyers = new Buyer;
 
-        $buyer->save();
+        $buyers->age = $request['age'];
+        $buyers->bio = $request['bio'];
+        $buyers->data_buyers_id = $request['data_buyers_id'];
 
-        return redirect('/buyer');
+        $buyers->save();
+
+        return redirect('/buyers');
     }
 
     /**
@@ -57,8 +53,8 @@ class BuyerController extends Controller
      */
     public function show(string $id)
     {
-        $buyer = Buyer::find($id);
-        return view ('buyer.show', ['buyer' => $buyer]);
+        $buyers = Buyer::with('dataBuyer')->find($id);
+        return view('buyer.show', ['buyers' => $buyers]);
     }
 
     /**
@@ -66,7 +62,9 @@ class BuyerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $buyers = Buyer::with('dataBuyer')->find($id);
+        $dataBuyers = DataBuyer::get();
+        return view('buyer.edit', ['buyers' => $buyers, 'dataBuyers' => $dataBuyers]);
     }
 
     /**
@@ -74,7 +72,19 @@ class BuyerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'age' => 'required',
+            'bio' => 'required',
+        ]);
+
+        $buyers = Buyer::find($id);
+
+        $buyers->age = $request['age'];
+        $buyers->bio = $request['bio'];
+
+        $buyers->save();
+
+        return redirect('/buyers');
     }
 
     /**
@@ -84,6 +94,6 @@ class BuyerController extends Controller
     {
         $buyer = Buyer::find($id);
         $buyer->delete();
-        return redirect('/buyer');
+        return redirect('/buyers');
     }
 }

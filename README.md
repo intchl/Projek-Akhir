@@ -11,8 +11,8 @@
 
 ## Tema Project
 
-Pembelian tiker bioskop online
+Pembelian tiket bioskop online
 
 ## ERD
 
-![ticket-bioskop-online](https://github.com/intchl/Projek-Akhir/assets/126045100/d1cd563b-ee1a-456f-bf4f-de785cd7dc70)
+![image](https://github.com/intchl/Projek-Akhir/assets/126045100/f0ad85f3-712f-495e-b5c8-77a719a96189)

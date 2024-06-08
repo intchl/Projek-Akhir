@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form action="/buyer" method="post">
+<form action="/buyers" method="post" enctype="multipart/form-data">
     {{-- validation --}}
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -20,22 +20,26 @@
     {{-- form input --}}
     @csrf
     <div class="form-group">
-        <label>Nama</label>
-        <input type="text" class="form-control" name="name" placeholder="Name">
+        <label>Data Buyers</label>
+        <select name="data_buyers_id" class="form-control" id="">
+            <option value="">--Select Name--</option>
+            @forelse ($dataBuyers as $item)
+                <option value="{{ $item->id }}"> {{ $item->name }}</option>
+            @empty
+                <option value="" disabled>No Data</option>
+            @endforelse
+        </select>
+    </div>
     <div class="form-group">
-            <label>Age</label>
-            <input type="string" class="form-control" name="age"  placeholder="Age">
-          </div>       
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" name="email"  placeholder="Email">
-      </div>
+      <label>Age</label>
+      <input type="number" class="form-control" name="age">
+    </div>
     <div class="form-group">
         <label>Bio</label>
-        <textarea name="bio" id="" cols="30" rows="10" class="form-control" placeholder="Bio"></textarea>
-      </div>
+        <textarea name="bio" id="" cols="30" rows="8" class="form-control"></textarea>
+    </div>
+    
       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-      <a href="/buyer"><button type="button" class="btn btn-light" >Cancel</button></a>
-
-    </form>
+      <a href="/buyers"><button type="button" class="btn btn-light">Cancel</button></a>
+</form>
 @endsection

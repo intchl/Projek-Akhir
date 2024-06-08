@@ -16,5 +16,4 @@ class Ticket extends Model
     {
         return $this->belongsTo(Film::class);
     }
-
 }

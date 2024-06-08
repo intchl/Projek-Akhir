@@ -22,16 +22,6 @@
         </div>
           @endguest
           
-        <div class="nav-search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
-            <div class="input-group-append">
-              <span class="input-group-text" id="search">
-                <i class="typcn typcn-zoom"></i>
-              </span>
-            </div>
-          </div>
-        </div>
         <p class="sidebar-menu-title">Dash menu</p>
       </li>
       <li class="nav-item">
@@ -53,9 +43,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/buyer">
+        <a class="nav-link" href="/dataBuyers">
           <i class="typcn typcn-group-outline menu-icon"></i>
-          <span class="menu-title">Buyer </span>
+          <span class="menu-title">Data Buyers </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buyers">
+          <i class="typcn typcn-group-outline menu-icon"></i>
+          <span class="menu-title">Buyers </span>
         </a>
       </li>
       <li class="nav-item">
@@ -64,26 +60,6 @@
           <span class="menu-title">Transaction </span>
         </a>
       </li>
-      @auth
-      <li class="nav-item bg-danger">
-        <a class="nav-link" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-      </li>
-      @endauth
-      @guest
-      <li class="nav-item bg-primary">
-        <a class="nav-link" href="/login">
-          <span class="menu-title">Login</span>
-        </a>
-      </li>
-      @endguest
       
     </ul>
   </nav>

@@ -16,4 +16,4 @@ class Film extends Model
     {
         return $this->hasMany(Film::class, 'film_id');
     }
-}    
+}

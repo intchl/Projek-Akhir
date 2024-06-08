@@ -40,34 +40,6 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="age" class="col-md-4 col-form-label text-md-end">Age</label>
-
-                            <div class="col-md-6">
-                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}">
-
-                                @error('age')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="age" class="col-md-4 col-form-label text-md-end">Bio</label>
-
-                            <div class="col-md-6">
-                                <textarea name="bio" id="bio" cols="30" rows="10" class="form-control @error('bio') is-invalid @enderror"></textarea>
-
-                                @error('bio')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

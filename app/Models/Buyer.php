@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Buyer extends Model
 {
     use HasFactory;
-    protected $table = "buyer";
-    protected $fillable = ["age", "bio", "users_id"];
+    protected $table = "buyers";
+    protected $fillable = ["age", "bio", "data_buyers_id"];
 
-    public function user()
+    public function dataBuyer()
     {
-    return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(DataBuyer::class, 'data_buyers_id');
     }
 }
-

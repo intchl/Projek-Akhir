@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('ticket');
 
-            $table->unsignedBigInteger('buyer_id');
-            $table->foreign('buyer_id')->references('id')->on('buyer');
+            $table->unsignedBigInteger('buyers_id');
+            $table->foreign('buyers_id')->references('id')->on('buyers');
 
             $table->timestamps();
         });

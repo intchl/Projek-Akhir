@@ -2,7 +2,10 @@
 
 @section('title')
     Film
-    <a href="/film/create" class="float-right"><button type="button" class="btn btn-primary btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a>
+    @auth
+    <a href="/film/create" class="float-right"><button type="button" class="btn btn-primary btn-rounded btn-icon" ><i class=" typcn typcn-plus menu-icon"></i></button></a> 
+    @endauth
+    
 @endsection
 @section('subtitle')
     Best Seller Film
@@ -40,7 +43,7 @@
     @empty
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
-            Tidak ada film
+            No Data
         </div>
     </div>
     @endforelse

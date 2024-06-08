@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ticket', function (Blueprint $table) {
-            $$table->id();
-            $table->integer('price');
-            $table->string('seat_number');
+        Schema::create('data_buyers', function (Blueprint $table) {
+            $table->id();
 
-            $table->unsignedBigInteger('film_id');
-            $table->foreign('film_id')->references('id')->on('film');
+            $table->string("name");
+            $table->string("email");
 
             $table->timestamps();
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('data_buyers');
     }
 };

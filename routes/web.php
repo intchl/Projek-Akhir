@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\TicketController;
-
+use App\Http\Controllers\DataBuyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ use App\Http\Controllers\TicketController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('dashboard.index');
 });
 
 Route::get('/master', function () {
@@ -34,10 +34,11 @@ Route::resource('film', FilmController::class);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('buyer', BuyerController::class);
+    // Route::resource('buyer', BuyerController::class);
 });
 
-Route::resource('buyer', BuyerController::class);
 Route::resource('ticket', TicketController::class);
+Route::resource('dataBuyers', DataBuyerController::class);
+Route::resource('buyers', BuyerController::class);
 
 Auth::routes();

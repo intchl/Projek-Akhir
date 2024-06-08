@@ -34,7 +34,7 @@
             @forelse ($film as $item)
                 <option value="{{$item->id}}"> {{$item->title}}</option>
             @empty
-                <option value="No Film Data"></option>
+            <option value="" disabled>No Data</option>
             @endforelse
         </select>
     </div>
