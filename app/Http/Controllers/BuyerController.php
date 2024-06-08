@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Buyer;
 
 class BuyerController extends Controller
@@ -10,18 +11,24 @@ class BuyerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $buyer = Buyer::all();
-        return view('buyer.index', ["buyer"=> $buyer]);
+    public function index() {
+        $buyers = Buyer::with('user')->get(); // Menggunakan eager loading untuk menghindari masalah N+1
+        return view('buyer.index', compact('buyers'));
     }
+
+    // public function index()
+    // {
+    //     $buyer = Buyer::all();
+    //     return view('buyer.index', ["buyer"=> $buyer]);
+    // }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view ('buyer.add');
+        $user = User::get();
+        return view('buyer.add', ['user' => $user]);
     }
 
     /**
@@ -59,8 +66,7 @@ class BuyerController extends Controller
      */
     public function edit(string $id)
     {
-        $buyer = Buyer::find($id);
-        return view ('buyer.edit', ['buyer' => $buyer]);
+        //
     }
 
     /**
@@ -68,19 +74,7 @@ class BuyerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'age' => 'required',
-            'bio' => 'required|min:4',
-            'users_id' => 'required',
-        ]);
-        $buyer = Buyer::find($id);
-
-        $buyer->age = request('age');
-        $buyer->bio = request('bio');
-        $buyer->users_id = request('users_id');
-
-        $buyer->save();
-        return redirect('/buyer');
+        //
     }
 
     /**
