@@ -7,28 +7,11 @@
       </button>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-      <ul class="navbar-nav mr-lg-2">
-        <li class="nav-item  d-none d-lg-flex">
-          <a class="nav-link active" href="#">
-            Calendar
-          </a>
-        </li>
-        <li class="nav-item  d-none d-lg-flex">
-          <a class="nav-link " href="#">
-            Statistic
-          </a>
-        </li>
-        <li class="nav-item  d-none d-lg-flex">
-          <a class="nav-link" href="#">
-            Employee
-          </a>
-        </li>
-      </ul>
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
-            <i class="typcn typcn-user-outline mr-0"></i>
-            <span class="nav-profile-name">Evan Morales</span>
+            <i class="typcn typcn-user-outline mr-0 text-primary"></i>
+            <span class="text-primary" style="font-weight: 500">{{ Auth::user()->name }}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
             <a class="dropdown-item">

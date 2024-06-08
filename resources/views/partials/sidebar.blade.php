@@ -17,7 +17,7 @@
           @endauth
           @guest
           <div class="sidebar-profile-name">
-            <p class="sidebar-name">Belum login</p>
+            <p class="sidebar-name">Login Dahulu!</p>
           </div>
         </div>
           @endguest
@@ -35,7 +35,7 @@
         <p class="sidebar-menu-title">Dash menu</p>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contoh">
+        <a class="nav-link" href="/dashboard">
           <i class="typcn typcn-device-desktop menu-icon"></i>
           <span class="menu-title">Dashboard </span>
         </a>

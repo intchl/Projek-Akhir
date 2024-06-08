@@ -19,27 +19,15 @@ use App\Http\Controllers\TicketController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/master', function () {
     return view('layout.master');
 });
 
-Route::get('/contoh', function () {
-    return view('contoh.index');
-});
-
-Route::get('/add', function () {
-    return view('contoh.add');
-});
-
-Route::get('/info', function () {
-    return view('contoh.info');
-});
-
-Route::get('/edit', function () {
-    return view('contoh.edit');
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
 });
 
 Route::resource('film', FilmController::class);
@@ -53,4 +41,3 @@ Route::resource('buyer', BuyerController::class);
 Route::resource('ticket', TicketController::class);
 
 Auth::routes();
-
