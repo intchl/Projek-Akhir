@@ -6,7 +6,7 @@
 
 @section('content')
 <form action="/ticket" method="post" enctype="multipart/form-data">
-    {{-- validation --}}
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -17,15 +17,10 @@
     </div>
     @endif
 
-    {{-- form input --}}
     @csrf
     <div class="form-group">
       <label>Price</label>
       <input type="number" class="form-control" name="price">
-    </div>
-    <div class="form-group">
-        <label>Seat Number</label>
-        <input type="string" class="form-control" name="seat_number">
     </div>
     <div class="form-group">
         <label>Film</label>

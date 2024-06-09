@@ -33,16 +33,14 @@ class TicketController extends Controller
     {
         $request->validate([
             'price' => 'required',
-            'seat_number' => 'required',
             'film_id' => 'required',
 
         ]);
 
         $ticket = new Ticket;
 
-        $ticket->price = $request ['price'];
-        $ticket->seat_number = $request ['seat_number'];
-        $ticket->film_id = $request ['film_id'];
+        $ticket->price = $request['price'];
+        $ticket->film_id = $request['film_id'];
 
         $ticket->save();
 
@@ -63,9 +61,9 @@ class TicketController extends Controller
      */
     public function edit(string $id)
     {
-         $ticket = Ticket::find($id);
-         $film = Film::get();
-         return view('ticket.edit', ['ticket' => $ticket, 'film' => $film]);   
+        $ticket = Ticket::find($id);
+        $film = Film::get();
+        return view('ticket.edit', ['ticket' => $ticket, 'film' => $film]);
     }
 
     /**
@@ -75,15 +73,13 @@ class TicketController extends Controller
     {
         $request->validate([
             'price' => 'required',
-            'seat_number' => 'required',
             'film_id' => 'required',
         ]);
 
         $ticket = Ticket::find($id);
-        
-        $ticket->price = $request ['price'];
-        $ticket->seat_number = $request ['seat_number'];
-        $ticket->fiLm_id = $request ['film_id'];
+
+        $ticket->price = $request['price'];
+        $ticket->fiLm_id = $request['film_id'];
 
         $ticket->save();
 

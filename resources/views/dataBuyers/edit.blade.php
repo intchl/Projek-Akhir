@@ -6,7 +6,7 @@
 
 @section('content')
 <form action="/dataBuyers/{{$dataBuyers->id}}" method="post">
-    {{-- validation --}}
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -17,7 +17,6 @@
     </div>
     @endif
 
-    {{-- form input --}}
     @csrf
     @method('put')
     <div class="form-group">

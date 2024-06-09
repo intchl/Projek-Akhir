@@ -12,8 +12,8 @@ class Film extends Model
     protected $table = "film";
     protected $fillable = ["title", "synopsis", "schedule", 'poster'];
 
-    public function film(): HasMany
+    public function tickets()
     {
-        return $this->hasMany(Film::class, 'film_id');
+        return $this->hasMany(Ticket::class);
     }
 }

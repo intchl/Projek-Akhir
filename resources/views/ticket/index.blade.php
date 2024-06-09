@@ -14,8 +14,8 @@
     <thead>
       <tr>
         <th scope="col">No</th>
+        <th scope="col">Title</th>
         <th scope="col">Price</th>
-        <th scope="col">Seat Number</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -25,7 +25,6 @@
             <th scope="row">{{ $key + 1 }}</th>
             <td>{{ $item->film->title }}</td>
             <td>{{ $item->price }}</td>
-            <td>{{ $item->seat_number }}</td>
 
             <td>
                 <form action="/ticket/{{$item->id}}" method="post">

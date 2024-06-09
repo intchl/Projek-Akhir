@@ -6,6 +6,7 @@ use App\Http\Controllers\FilmController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DataBuyerController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,6 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('ticket', TicketController::class);
 Route::resource('dataBuyers', DataBuyerController::class);
 Route::resource('buyers', BuyerController::class);
+Route::resource('transactions', TransactionController::class);
 
 Auth::routes();

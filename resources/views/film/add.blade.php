@@ -6,7 +6,7 @@
 
 @section('content')
 <form action="/film" method="post" enctype="multipart/form-data">
-    {{-- validation --}}
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -17,7 +17,6 @@
     </div>
     @endif
 
-    {{-- form input --}}
     @csrf
     <div class="form-group">
       <label>Title</label>

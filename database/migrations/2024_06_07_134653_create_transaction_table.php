@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->string('seat_number');
 
             $table->unsignedBigInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('ticket');

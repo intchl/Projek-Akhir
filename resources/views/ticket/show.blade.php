@@ -15,7 +15,7 @@
           <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title mb-3">{{ $ticket->film->title }}</h5>
-                <p>Price : {{$ticket->price}} <br> Seat Number : {{$ticket->seat_number}}
+                <p>Price : {{$ticket->price}} 
                 </p>
             </div>
           </div>
