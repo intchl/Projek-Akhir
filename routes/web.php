@@ -35,7 +35,6 @@ Route::resource('film', FilmController::class);
 
 
 Route::middleware(['auth'])->group(function () {
-    // Route::resource('buyer', BuyerController::class);
 });
 
 Route::resource('ticket', TicketController::class);
@@ -44,8 +43,3 @@ Route::resource('buyers', BuyerController::class);
 Route::resource('transactions', TransactionController::class);
 
 Auth::routes();
-
-Auth::routes();
-
-
-Route::resource('transactions', TransactionController::class);

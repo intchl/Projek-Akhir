@@ -14,6 +14,7 @@ class FilmController extends Controller
     {
         $this->middleware('auth')->except('index', 'show');
     }
+
     public function index()
     {
         $film = Film::all();
@@ -37,6 +38,7 @@ class FilmController extends Controller
             'title' => 'required',
             'synopsis' => 'required',
             'schedule' => 'required',
+            'poster' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $film = new Film;
@@ -45,16 +47,11 @@ class FilmController extends Controller
         $film->synopsis = $request->synopsis;
         $film->schedule = $request->schedule;
 
-        $film = Film::create($request->all());
         if ($request->hasFile('poster')) {
-            if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
-                unlink(public_path('images/' . $film->poster));
-            }
-
             $poster = $request->file('poster');
-            $newPosterName = time() . '.' . $poster->getClientOriginalExtension();
-            $poster->move(public_path('images'), $newPosterName);
-            $film->poster = $newPosterName;
+            $posterName = time() . '.' . $poster->getClientOriginalExtension();
+            $poster->move(public_path('images'), $posterName);
+            $film->poster = $posterName;
         }
 
         $film->save();
@@ -98,14 +95,15 @@ class FilmController extends Controller
         $film->schedule = $request['schedule'];
 
         if ($request->hasFile('poster')) {
-            if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
-                unlink(public_path('images/' . $film->poster));
+            $poster = $request->file('poster');
+            $posterName = $film->poster; // Retain the current name
+
+            if ($posterName && file_exists(public_path('images/' . $posterName))) {
+                unlink(public_path('images/' . $posterName));
             }
 
-            $poster = $request->file('poster');
-            $newPosterName = time() . '.' . $poster->getClientOriginalExtension();
-            $poster->move(public_path('images'), $newPosterName);
-            $film->poster = $newPosterName;
+            $poster->move(public_path('images'), $posterName);
+            $film->poster = $posterName;
         }
 
         $film->save();
@@ -113,14 +111,17 @@ class FilmController extends Controller
         return redirect('/film')->with('success', 'Film updated successfully!');
     }
 
-
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         $film = Film::find($id);
+
+        if ($film->poster && file_exists(public_path('images/' . $film->poster))) {
+            unlink(public_path('images/' . $film->poster));
+        }
+
         $film->delete();
         return redirect('/film');
     }
