@@ -10,10 +10,14 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $table = "ticket";
-    protected $fillable = ["price", "seat_number", "film_id"];
+    protected $fillable = ["price", "film_id"];
 
     public function film()
     {
         return $this->belongsTo(Film::class);
+    }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }

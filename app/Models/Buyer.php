@@ -15,4 +15,8 @@ class Buyer extends Model
     {
         return $this->belongsTo(DataBuyer::class, 'data_buyers_id');
     }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

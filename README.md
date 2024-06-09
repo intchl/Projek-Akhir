@@ -15,4 +15,4 @@ Pembelian tiket bioskop online
 
 ## ERD
 
-![image](https://github.com/intchl/Projek-Akhir/assets/126045100/f0ad85f3-712f-495e-b5c8-77a719a96189)
+![image](https://github.com/intchl/Projek-Akhir/assets/126045100/f6244a82-7aa8-4d99-98ae-7dcb82600b0a)
