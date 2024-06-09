@@ -44,3 +44,8 @@ Route::resource('buyers', BuyerController::class);
 Route::resource('transactions', TransactionController::class);
 
 Auth::routes();
+
+Auth::routes();
+
+
+Route::resource('transactions', TransactionController::class);
