@@ -39,10 +39,7 @@
                                 class="auth-form-light text-left py-5 px-4 px-sm-5"
                             >
                                 <div class="brand-logo">
-                                    <img
-                                        src="{{asset('admin/template/images/logo.svg')}}"
-                                        alt="logo"
-                                    />
+                                    <h1 class="text-primary font-weight-bold text-center">TIXKET</h1>
                                 </div>
                                 @yield('content')
                             </div>
