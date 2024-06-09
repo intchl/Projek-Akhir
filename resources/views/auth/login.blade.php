@@ -1,5 +1,9 @@
 @extends('layouts.auth')
 
+@section('title')
+Login
+@endsection
+
 @section('content')
 <h4>Hello! let's get started</h4>
 <h6 class="font-weight-light">Sign in to continue.</h6>

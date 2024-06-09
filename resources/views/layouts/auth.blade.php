@@ -7,7 +7,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <title>CelestialUI Admin</title>
+        <title>@yield('title')</title>
         <!-- base:css -->
         <link rel="stylesheet" href="{{asset('admin/template/vendors/typicons.font/font/typicons.css')}}">
         
